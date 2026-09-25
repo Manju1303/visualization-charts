@@ -186,26 +186,11 @@ body {
 
 .header-top-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     margin-bottom: var(--space-16);
     flex-wrap: wrap;
     gap: var(--space-12);
-}
-
-.header-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-6);
-    padding: var(--space-6) var(--space-16);
-    border-radius: var(--radius-full);
-    background: rgba(6, 182, 212, 0.12);
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    color: var(--accent-cyan);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    box-shadow: 0 0 16px rgba(6, 182, 212, 0.2);
 }
 
 .header-actions {
@@ -647,7 +632,7 @@ body {
     justify-content: center;
     height: 420px;
     gap: 3px;
-    padding: var(--space-20) var(--space-12) var(--space-8);
+    padding: var(--space-32) var(--space-12) var(--space-8);
     background: radial-gradient(ellipse at 50% 100%, rgba(6, 182, 212, 0.08) 0%, transparent 70%),
                 rgba(3, 7, 18, 0.85);
     border-radius: var(--radius-md);
@@ -787,21 +772,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: 1.25rem;
-}
-
-.stability-badge {
-    padding: var(--space-4) var(--space-10);
-    border-radius: var(--radius-full);
-    font-size: 0.72rem;
-    font-weight: 700;
-    background: rgba(6, 182, 212, 0.12);
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    color: var(--accent-cyan);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
 .algorithm-info-card p {
     color: var(--text-secondary);
     font-size: 0.88rem;
@@ -809,14 +779,14 @@ body {
     margin-bottom: var(--space-16);
 }
 
-/* ---- Stats Grid ---- */
-.stats-grid {
+/* ---- Complexity Specs Grid ---- */
+.complexity-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-10);
 }
 
-.stat-item {
+.complexity-item {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
@@ -827,11 +797,11 @@ body {
     transition: background var(--duration-fast) var(--ease-out);
 }
 
-.stat-item:hover {
+.complexity-item:hover {
     background: rgba(255, 255, 255, 0.06);
 }
 
-.stat-label {
+.complexity-label {
     color: var(--text-muted);
     font-size: 0.72rem;
     font-weight: 600;
@@ -839,65 +809,12 @@ body {
     letter-spacing: 0.06em;
 }
 
-.stat-value {
-    color: var(--text-primary);
-    font-size: 1.35rem;
+.complexity-val {
+    color: var(--accent-cyan);
+    font-size: 1.18rem;
     font-weight: 700;
     font-family: var(--font-mono);
     letter-spacing: -0.02em;
-}
-
-/* ---- Complexities ---- */
-.complexity-info {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-10);
-}
-
-.complexity-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-8);
-}
-
-.complexity-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-6);
-    padding: var(--space-6) var(--space-12);
-    border-radius: var(--radius-full);
-    font-size: 0.76rem;
-    font-weight: 600;
-}
-
-.complexity-badge code {
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 0.82rem;
-}
-
-.badge--best {
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    color: var(--accent-green);
-}
-
-.badge--avg {
-    background: rgba(245, 158, 11, 0.12);
-    border: 1px solid rgba(245, 158, 11, 0.3);
-    color: var(--accent-amber);
-}
-
-.badge--worst {
-    background: rgba(239, 68, 68, 0.12);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    color: var(--accent-red);
-}
-
-.badge--space {
-    background: rgba(168, 85, 247, 0.12);
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    color: var(--accent-purple);
 }
 
 /* ==========================================================================
@@ -1038,8 +955,8 @@ footer a:hover {
         grid-template-columns: 1fr 1fr;
     }
 
-    .complexity-row {
-        flex-direction: column;
+    .complexity-grid {
+        grid-template-columns: 1fr 1fr;
     }
 
     .legend-items {

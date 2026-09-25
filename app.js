@@ -238,6 +238,28 @@ class SortingVisualizer {
                 }
             });
         }
+
+        // Global Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+
+            if (e.code === 'Space') {
+                e.preventDefault();
+                if (this.isPlaying && !this.isPaused) {
+                    this.pause();
+                } else {
+                    this.play();
+                }
+            } else if (e.key === 'r' || e.key === 'R') {
+                this.reset();
+            } else if (e.key === 's' || e.key === 'S') {
+                this.step();
+            } else if (e.key === 'n' || e.key === 'N') {
+                if (!this.isPlaying) {
+                    this.generateArray(this.distribution);
+                }
+            }
+        });
     }
 
     selectAlgorithm(algorithm) {
@@ -346,7 +368,6 @@ class SortingVisualizer {
         const avgCaseEl = document.getElementById('average-case');
         const worstCaseEl = document.getElementById('worst-case');
         const spaceComplexityEl = document.getElementById('space-complexity');
-        const stabilityEl = document.getElementById('algo-stability');
 
         if (currentAlgoEl) currentAlgoEl.textContent = algo.name;
         if (descEl) descEl.textContent = algo.description;
@@ -354,7 +375,6 @@ class SortingVisualizer {
         if (avgCaseEl) avgCaseEl.textContent = algo.timeComplexity.average;
         if (worstCaseEl) worstCaseEl.textContent = algo.timeComplexity.worst;
         if (spaceComplexityEl) spaceComplexityEl.textContent = algo.spaceComplexity;
-        if (stabilityEl) stabilityEl.textContent = algo.stability;
     }
 
     resetStatistics() {
@@ -929,6 +949,7 @@ class SortingVisualizer {
         const waveDelay = Math.max(8, Math.min(30, 600 / n));
 
         for (let i = 0; i < n; i++) {
+            if (!this.isPlaying) return;
             const bar = document.querySelector(`[data-index="${i}"]`);
             if (bar) {
                 bar.classList.add('sorted');
@@ -937,7 +958,9 @@ class SortingVisualizer {
             await new Promise(r => setTimeout(r, waveDelay));
         }
 
-        this.updateProgress(100);
+        if (this.isPlaying) {
+            this.updateProgress(100);
+        }
     }
 }
 

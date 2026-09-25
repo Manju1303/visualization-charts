@@ -35,7 +35,6 @@
         <!-- Header -->
         <header class="header" id="main-header">
             <div class="header-top-row">
-                <div class="header-badge">⚡ Interactive Algorithm Studio</div>
                 <div class="header-actions">
                     <button class="sound-toggle-btn" id="sound-toggle" title="Toggle Synthesizer Sound" aria-label="Toggle Sound">
                         <span id="sound-icon">🔇</span>
@@ -202,17 +201,24 @@
             <div class="algorithm-info-card glass-card" id="algo-info-card">
                 <div class="algo-title-wrap">
                     <h3 id="current-algorithm">Bubble Sort</h3>
-                    <span class="stability-badge" id="algo-stability">Stable</span>
                 </div>
                 <p id="algorithm-description">Repeatedly compares adjacent elements and swaps them if they are in wrong order</p>
-                <div class="complexity-info">
-                    <div class="complexity-row">
-                        <span class="complexity-badge badge--best">Best: <code id="best-case">O(n)</code></span>
-                        <span class="complexity-badge badge--avg">Avg: <code id="average-case">O(n²)</code></span>
-                        <span class="complexity-badge badge--worst">Worst: <code id="worst-case">O(n²)</code></span>
+                <div class="complexity-grid">
+                    <div class="complexity-item">
+                        <span class="complexity-label">Best Case</span>
+                        <span class="complexity-val" id="best-case">O(n)</span>
                     </div>
-                    <div class="complexity-row">
-                        <span class="complexity-badge badge--space">Space: <code id="space-complexity">O(1)</code></span>
+                    <div class="complexity-item">
+                        <span class="complexity-label">Average Case</span>
+                        <span class="complexity-val" id="average-case">O(n²)</span>
+                    </div>
+                    <div class="complexity-item">
+                        <span class="complexity-label">Worst Case</span>
+                        <span class="complexity-val" id="worst-case">O(n²)</span>
+                    </div>
+                    <div class="complexity-item">
+                        <span class="complexity-label">Space Complexity</span>
+                        <span class="complexity-val" id="space-complexity">O(1)</span>
                     </div>
                 </div>
             </div>
